@@ -1,0 +1,82 @@
+<style>
+  body {
+      background-color: black;
+  }
+  #back {
+      position: relative;
+      border-color: #000000;
+      height:95vh;
+      width: 95vw;
+      display: flex;
+      background: black;
+      margin: 0 auto;
+      justify-content: space-around;
+      align-items: center;
+  }
+
+  #left-eye {
+      width: 250px;
+      height: 250px;
+      top: 40%;
+      left: 32%;
+      border-radius: 50%;
+      background-color: #4fc3f7;
+      animation-name: movelefteye;
+      align-items: center;
+      justify-content: center;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+  }
+
+  @keyframes movelefteye {
+      100% {
+          /* This is for mad eyes*/   
+          width: 250px;
+          height: 125px;     
+          border-radius: 50% / 100%;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          background-color: #4fc3f7;
+          transform: rotate(-20deg);
+      }
+  }
+
+  #right-eye {
+      width: 250px;
+      height: 250px;
+      top: 40%;
+      right: 32%;
+      border-radius: 50%;
+      background-color: #4fc3f7;
+      animation-name: moverighteye;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      align-items: center;
+      justify-content: center;
+      
+  }
+
+  @keyframes moverighteye {
+      100% {
+          /* This is for mad eyes*/   
+          width: 250px;
+          height: 125px;     
+          border-radius: 50% / 100%;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          background-color: #4fc3f7;
+          transform: rotate(20deg);
+      }
+  }
+
+
+</style>
+
+<html>
+  <body>
+    <div id='back'>
+      <div id='left-eye'></div>
+      <div id='right-eye'></div>
+    </div>
+  </body>
+</html>

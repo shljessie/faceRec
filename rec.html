@@ -49,13 +49,24 @@
         document.getElementById("webcam-container").appendChild(webcam.canvas);
         labelContainer = document.getElementById("label-container");
         for (let i = 0; i < maxPredictions; i++) { // and class labels
-            labelContainer.appendChild(document.createElement("div"));
+            const divLabel=labelContainer.appendChild(document.createElement("div"));
+            divLabel.setAttribute("id",i);
         }
     }
 
+    // const interval = setInterval(function() {
+    // // method to be executed;
+    // }, 5000);   
+    // clearInterval(interval); //
+
     async function loop() {
         webcam.update(); // update the webcam frame
-        await predict();
+        const interval = setInterval(function() {
+        // method to be executed;
+           predict();
+           console.log('inhere')
+        }, 2000);   
+        clearInterval(interval); //
         window.requestAnimationFrame(loop);
     }
 
@@ -63,10 +74,23 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
+        const listp=[];
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
+            listp.push(prediction[i].probability.toFixed(2));
+            
         }
+        // console.log(listp);
+        const maxVal=listp.indexOf(Math.max(...listp));
+        // maxIndex=listp.indexOf(maxVal);
+        console.log(maxVal);        
     }
+
+    async function show() {
+        
+    }
+
+
 </script>
