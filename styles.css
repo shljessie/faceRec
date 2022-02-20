@@ -1,0 +1,21 @@
+body{
+  margin: 0 auto;
+}
+#happy{
+  display: none;
+  background-color: yellow;
+  width:700px;
+  height:500px;
+}
+#neutral{
+  display: block;
+  background-color: blue;
+  width:700px;
+  height:500px;
+}
+#mad{
+  display: none;
+  background-color: red;
+  width:700px;
+  height:500px;
+}
