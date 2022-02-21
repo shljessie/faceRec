@@ -61,12 +61,13 @@
 
     async function loop() {
         webcam.update(); // update the webcam frame
-        const interval = setInterval(function() {
-        // method to be executed;
-           predict();
-           console.log('inhere')
-        }, 2000);   
-        clearInterval(interval); //
+        await predict();
+        // const interval = setInterval(function() {
+        // // method to be executed;
+        //    predict();
+        //    console.log('inhere')
+        // }, 2000);   
+        // clearInterval(interval); //
         window.requestAnimationFrame(loop);
     }
 
@@ -85,7 +86,7 @@
         // console.log(listp);
         const maxVal=listp.indexOf(Math.max(...listp));
         // maxIndex=listp.indexOf(maxVal);
-        console.log(maxVal);        
+        // console.log(maxVal);        
     }
 
     async function show() {
